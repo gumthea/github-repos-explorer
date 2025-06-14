@@ -5,19 +5,22 @@ import type { GitHubUser, GitHubRepo } from "../types/github";
 type State = {
   searchTerm: string;
   users: GitHubUser[];
+  loading: boolean;
 };
 
 const initialState: State = {
   searchTerm: "",
   users: [],
+  loading: false,
 };
 
 type Action =
   | { type: "SET_SEARCH_TERM"; payload: string }
   | { type: "SET_USERS"; payload: GitHubUser[] }
-  | { type: "SET_USER_REPOS"; payload: { username: string; repos: GitHubRepo[] } };
+  | { type: "SET_USER_REPOS"; payload: { username: string; repos: GitHubRepo[] } }
+  | { type: "SET_LOADING"; payload: boolean };
 
-function reducer(state: State, action: Action): State {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "SET_SEARCH_TERM":
       return { ...state, searchTerm: action.payload };
@@ -32,6 +35,8 @@ function reducer(state: State, action: Action): State {
             : user
         ),
       };
+    case "SET_LOADING":
+      return { ...state, loading: action.payload };
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 export interface GitHubUser {
   id: number;
   login: string;
+  repos?: GitHubRepo[];
 }
 
 export interface GitHubRepo {
