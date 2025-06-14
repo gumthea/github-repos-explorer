@@ -29,11 +29,11 @@ const App: React.FC = () => {
   const renderContent = () => {
     if (state.loading) {
       return (
-        <>
+        <div className="px-4">
           {Array.from({ length: 5 }).map((_, index) => (
             <UserItemSkeleton key={index} />
           ))}
-        </>
+        </div>
       );
     }
 
