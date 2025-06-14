@@ -47,12 +47,12 @@ const App: React.FC = () => {
 
     if (state.users.length > 0) {
       return (
-        <>
+        <div className="px-4">
           <p className="mt-4 text-sm sm:text-base">
             Showing users for &quot;{state.searchTerm}&quot;
           </p>
           <UserList users={state.users} />
-        </>
+        </div>
       );
     }
 
@@ -60,14 +60,14 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen flex flex-col items-center px-4">
+    <div className="relative h-screen flex flex-col items-center">
       <SearchForm
         value={inputSearch}
         onChange={setInputSearch}
         onSubmit={handleSearch}
         loading={state.loading}
       />
-      <div className="mt-[124px] w-full max-w-md flex-1 overflow-y-auto">
+      <div className="mt-[124px] w-full max-w-md flex-1">
         {renderContent()}
       </div>
     </div>

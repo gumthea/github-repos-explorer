@@ -14,7 +14,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   onSubmit,
   loading = false,
 }) => (
-  <div className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-md max-w-full px-4 bg-white py-4 z-20">
+  <div className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4 bg-white py-4 z-20">
     <input
       type="text"
       placeholder="Enter username"
